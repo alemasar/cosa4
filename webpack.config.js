@@ -10,7 +10,7 @@ var p = {}
 p['./dist/js/' + pjson.name + '.bundle.js'] = './src/js/main.js';
 p['./dist/js/app.bundle.js'] = './src/js/app.js';
 //p['./dist/js/base/base.bundle.js'] = './base/js/base.js';
-//p['./dev/dist/js/main.bundle.js'] = './dev/src/js/main.js';
+p['./dev/dist/js/main.bundle.js'] = './dev/src/js/main.js';
 
 var css = {}
 css['./dist/css/' + pjson.name ] = './src/sass/' + pjson.name + '.scss';

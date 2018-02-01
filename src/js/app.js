@@ -1,5 +1,6 @@
 import Utils from './modules/moto-state/utils';
 import EventObj from './modules/events/events';
+import EventHandlers from './modules/events/events-handlers';
 /*const app = function (module) {
     console.log("entro")
     return new Proxy(module, {
