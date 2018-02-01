@@ -2,7 +2,7 @@
 import { addModule } from './modules/moto-state/module';
 import { language } from './models/language.model';
 import { header } from './models/header.model';*/
-import { event } from './modules/events/events';
+//import { event } from './modules/events/events';
 import { Methods } from './modules/prova';
 
 export const module = new Proxy(Methods, {
