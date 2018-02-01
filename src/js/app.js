@@ -36,6 +36,16 @@ import EventHandlers from './modules/events/events-handlers';
 }*/
 class Dummy{}
 
+export const eventHandlers = new Proxy(EventHandlers, {
+    get: function (target, name, receiver) {
+        //const t = new target();
+        console.log(target)
+        console.log(name)
+        //return new target();
+    }
+});
+
+
 export const eventEmit = new Proxy(EventObj, {
     get: function (target, name, receiver) {
         //const t = new target();
@@ -44,6 +54,10 @@ export const eventEmit = new Proxy(EventObj, {
         return new target();
     }
 });
+
+const emit = function (event, args){
+    
+}
 
 
 document.addEventListener('cuando-yo-digo', function (e) {
