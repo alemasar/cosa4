@@ -10,14 +10,12 @@ const dispatchEvents = function (){
     }
     Utils.triggerEvent('get-modules', { action: func });
 
-console.log(allModules)
+//console.log(allModules)
     let allCreated = true;
     for (let v of allModules.keys()) {
         const value = allModules.get(v);
-        console.log(v);
         if (!value.created){
             allCreated = false;
-            console.log(allCreated)
             Utils.triggerEvent(v + '-created', { obj: value.module, id: v });
             allModules.set(v, {'module': module, 'created': true});
             Utils.triggerEvent('set-modules', { modules: allModules });
@@ -27,7 +25,7 @@ console.log(allModules)
             this.events.set(v, { obj: value.obj, id: value.id, dispatched: true });
         }*/
     }
-    console.log(allCreated)
+   // console.log(allCreated)
     if (allCreated){
         Utils.triggerEvent('modules-ready', {});
     }
@@ -37,19 +35,13 @@ export const addModule = function (id, module) {
     let allModules = new Map();
     const func = function (e) {
 
-        //if (this.size===0){
-            console.log(dispatchEvents)
-        //} 
         allModules = this;
         allModules.set(id, {'module': module, 'created': false});
-        console.log(this.size)
-        //if (this.size===0){
             Utils.triggerEvent('dispatch-event-list', {});
         //}
     }
     Utils.triggerEvent('get-modules', { action: func });
     Utils.triggerEvent('set-modules', { modules: allModules });
-    console.log(allModules)
 }
 
 const getObjHandler = function (e) {

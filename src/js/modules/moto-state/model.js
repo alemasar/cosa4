@@ -39,22 +39,28 @@ export let model = function (instance, values) {
     let state;
 
     const func = function () {
-        console.log(this)
+       // console.log(this)
         state = this;
     }
     Utils.triggerEvent('get-state', { action: func });
-    console.log(state)
+    //console.log(state)
 
     if (!state[instance]){
         state[instance] = {};
     }
-
+    console.log(state);
+    console.log(state[instance])
     const proxy = new Proxy(state[instance], {
         setPrototypeOf: function (target, prototype){
+            console.log('Model en setPrototypeOf')
+            //console.log(target)
+            //console.log(prototype)
             return Reflect['setPrototypeOf'];
         },
         get: function (target, propKey, receiver) {
+            console.log('Model en get')
            // console.log(target);
+           // console.log(propKey);
             if (!(propKey in target)) {
                 throw new ReferenceError('Unknown property: ' + propKey);
             }
@@ -63,8 +69,9 @@ export let model = function (instance, values) {
             //return obj[prop];
         },
         set: function (target, prop, value) {
+            console.log('Model en set');
             //console.log(prop);
-           // console.log(target);
+            //console.log(target);
             //       console.log(store.modelo);
             //state.push({ ...value });
             //console.log(target)

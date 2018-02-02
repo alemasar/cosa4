@@ -10,7 +10,7 @@ const setState = function () {
 
    const func = function () {
        store = state;
-       console.log(store);
+       //console.log(store);
    }
    Utils.triggerEvent('get-state', { action: func });
 }
